@@ -1,3 +1,5 @@
+Hasil
+
 Mencari Prime Number 2 sampai 20.000.000
 Dengan total Worker = 30
 Buffered Channel = 1000
@@ -12,3 +14,5 @@ Mencari Prime Number 2 sampai 20.000.000
 Dengan total Worker = 50
 Buffered Channel = 1000
 Total duration = 14.1918094s
+
+*Memperbanyak jumlah worker belum tentu mempercepat proses
