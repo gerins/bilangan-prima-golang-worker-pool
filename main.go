@@ -7,38 +7,50 @@ import (
 	"time"
 )
 
+var (
+	bufferedChannel = 1000
+	total           = 0
+)
+
 func main() {
 	startTime := time.Now()
-
-	totalWorker := 40
+	totalWorker := 1
 	maxPrime := 20000000
-	job := numberProduction(maxPrime)
 
-	for data := range dispatchWorker(job, totalWorker) {
-		fmt.Println(data)
+	chanDistribution := numberProduction(maxPrime)
+	result := dispatchWorker(chanDistribution, totalWorker)
+
+	for range result {
+		// fmt.Println(data)
 	}
 
 	fmt.Println(`Mencari Prime Number 2 sampai`, maxPrime)
 	fmt.Println(`Dengan total Worker =`, totalWorker)
-	fmt.Println(`Buffered Channel =`, 1000)
+	fmt.Println(`Buffered Channel =`, bufferedChannel)
 	fmt.Println(`Total duration =`, time.Since(startTime))
+	fmt.Println(`Total data received`, total)
+	fmt.Println(`------------------------------------`)
 }
 
-func dispatchWorker(job chan *int, totalWorker int) chan int {
-	chanOut := make(chan int, 1000)
+func dispatchWorker(job chan int, totalWorker int) chan int {
+	chanOut := make(chan int, bufferedChannel)
 	wg := new(sync.WaitGroup)
+	mtx := new(sync.Mutex)
 	wg.Add(totalWorker)
 
 	go func() {
 		for i := 0; i < totalWorker; i++ {
-			go func() {
+			go func(mtx *sync.Mutex, id int) {
 				for data := range job {
+					mtx.Lock()
+					total++
+					mtx.Unlock()
 					if result := cariPrime(data); result != 0 {
 						chanOut <- result
 					}
 				}
 				wg.Done()
-			}()
+			}(mtx, i)
 		}
 	}()
 
@@ -50,31 +62,29 @@ func dispatchWorker(job chan *int, totalWorker int) chan int {
 	return chanOut
 }
 
-func numberProduction(maxPrime int) chan *int {
-	chanOut := make(chan *int, 1000)
-
+func numberProduction(maxPrime int) chan int {
+	chanOut := make(chan int, bufferedChannel)
 	go func() {
-		for i := 2; i < maxPrime; i++ {
-			chanOut <- &i
+		for i := 1; i <= maxPrime; i++ {
+			chanOut <- i
 		}
 		close(chanOut)
 	}()
-
 	return chanOut
 }
 
-func cariPrime(prime *int) int {
-	sqrt := int(math.Sqrt(float64(*prime)))
+func cariPrime(prime int) int {
+	sqrt := int(math.Sqrt(float64(prime)))
 	cek := true // buat cek, kalo tetep true berarti prima
 
 	for i := 2; i <= sqrt; i++ { // pengulangan pengecekan
-		if *prime%i == 0 { // prime di mod i kalo 0 berarti bukan prima
+		if prime%i == 0 { // prime di mod i kalo 0 berarti bukan prima
 			cek = false // ubah ke false biar di line 33 ngga ke append
 			break       // hentikan loop, balik ke prime ++ ( line 23)
 		}
 	}
 	if cek == true {
-		return *prime
+		return prime
 	}
 	return 0
 }

@@ -1,14 +1,36 @@
-Mencari Prime Number 2 sampai 20.000.000
-Dengan total Worker = 30
+Mencari Prime Number 2 sampai 20000000
+Dengan total Worker = 1
 Buffered Channel = 1000
-Total duration = 13.9449434s
-
-Mencari Prime Number 2 sampai 20.000.000
+Total duration = 1m13.6019119s
+Total data received 20000000
+------------------------------------
+Mencari Prime Number 2 sampai 20000000
+Dengan total Worker = 20
+Buffered Channel = 1000
+Total duration = 24.3228568s
+Total data received 20000000
+------------------------------------
+Mencari Prime Number 2 sampai 20000000
 Dengan total Worker = 40
 Buffered Channel = 1000
-Total duration = 13.3400311s
-
-Mencari Prime Number 2 sampai 20.000.000
-Dengan total Worker = 50
+Total duration = 24.9720736s
+Total data received 20000000
+------------------------------------
+Mencari Prime Number 2 sampai 20000000
+Dengan total Worker = 60
 Buffered Channel = 1000
-Total duration = 14.1918094s
+Total duration = 24.2081058s
+Total data received 20000000
+------------------------------------
+Mencari Prime Number 2 sampai 20000000
+Dengan total Worker = 80
+Buffered Channel = 1000
+Total duration = 24.1615477s
+Total data received 20000000
+------------------------------------
+Mencari Prime Number 2 sampai 20000000
+Dengan total Worker = 100
+Buffered Channel = 1000
+Total duration = 24.3586945s
+Total data received 20000000
+------------------------------------
