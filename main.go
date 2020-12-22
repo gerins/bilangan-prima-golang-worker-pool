@@ -79,8 +79,8 @@ func cariPrime(prime int) int {
 
 	for i := 2; i <= sqrt; i++ { // pengulangan pengecekan
 		if prime%i == 0 { // prime di mod i kalo 0 berarti bukan prima
-			cek = false // ubah ke false biar di line 33 ngga ke append
-			break       // hentikan loop, balik ke prime ++ ( line 23)
+			cek = false // ubah ke false, biar return 0
+			break
 		}
 	}
 	if cek == true {
