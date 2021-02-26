@@ -34,3 +34,51 @@ Buffered Channel = 1000
 Total duration = 24.3586945s
 Total data received 20000000
 ------------------------------------
+Mencari Prime Number 2 sampai 20000000
+Dengan total Worker = 40
+Buffered Channel = 1000
+Total duration = 28.8926877s
+Total data received 20000000
+------------------------------------
+Mencari Prime Number 2 sampai 20000000
+Dengan total Worker = 40
+Buffered Channel = 1000
+Total duration = 25.0752641s
+Total data received 20000000
+------------------------------------
+Mencari Prime Number 2 sampai 20000000
+Dengan total Worker = 40
+Buffered Channel = 1000
+Total duration = 28.8182866s
+Total data received 20000000
+------------------------------------
+Mencari Prime Number 2 sampai 20000000
+Dengan total Worker = 80
+Buffered Channel = 1000
+Total duration = 25.3878307s
+Total data received 20000000
+------------------------------------
+Mencari Prime Number 2 sampai 20000000
+Dengan total Worker = 80
+Buffered Channel = 1000
+Total duration = 24.7751798s
+Total data received 20000000
+------------------------------------
+Mencari Prime Number 2 sampai 20000000
+Dengan total Worker = 80
+Buffered Channel = 1000
+Total duration = 38.9668819s
+Total data received 20000000
+------------------------------------
+Mencari Prime Number 2 sampai 20000000
+Dengan total Worker = 80
+Buffered Channel = 1000
+Total duration = 25.6190751s
+Total data received 20000000
+------------------------------------
+Mencari Prime Number 2 sampai 20000000
+Dengan total Worker = 80
+Buffered Channel = 1000
+Total duration = 26.3016009s
+Total data received 20000000
+------------------------------------

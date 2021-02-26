@@ -14,7 +14,7 @@ var (
 
 func main() {
 	startTime := time.Now()
-	totalWorker := 1
+	totalWorker := 80
 	maxPrime := 20000000
 
 	chanDistribution := numberProduction(maxPrime)
@@ -78,6 +78,7 @@ func cariPrime(prime int) int {
 	cek := true // buat cek, kalo tetep true berarti prima
 
 	for i := 2; i <= sqrt; i++ { // pengulangan pengecekan
+		// for i := 2; i < prime; i++ { // pengulangan pengecekan
 		if prime%i == 0 { // prime di mod i kalo 0 berarti bukan prima
 			cek = false // ubah ke false, biar return 0
 			break
